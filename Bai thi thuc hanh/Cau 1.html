@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trung Bình Cộng</title>
+</head>
+<body>
+<h1>Tính Trung Bình Cộng</h1>
+  <input type="text" id="arrayInput" placeholder="Nhập số (cách nhau bằng dấu phẩy)">
+  <button onclick="calculateAverage()">Tính</button>
+  <p id="result"></p>
+
+<script>
+  function calculateAverage() {
+    const input = document.getElementById("arrayInput").value;
+    const arr = input.split(',').map(Number);
+    const divisibleBy3 = arr.filter(num => num % 3 === 0);
+    const average = divisibleBy3.length ? (divisibleBy3.reduce((a, b) => a + b) / divisibleBy3.length) : 0;
+    document.getElementById("result").innerText = `Trung bình cộng: ${average || "Không có số chia hết cho 3."}`;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra số nguyên dương</title>
+  <style>
+    body {
+      font-family: "Times New Roman", sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 10px solid #333;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+<h1>Kiểm tra số hoàn hảo</h1>
+<label for="number">Nhập một số nguyên dương:</label>
+<input type="number" id="number" min="1">
+<button onclick="checkPerfectNumber()">Kiểm tra</button>
+
+<table>
+  <thead>
+  <tr>
+    <th>Số</th>
+    <th>Kết quả</th>
+  </tr>
+  </thead>
+  <tbody id="resultTable">
+  <tr>
+    <td id="numberCell"></td>
+    <td id="resultCell"></td>
+  </tr>
+  </tbody>
+</table>
+
+<script>
+  function checkPerfectNumber() {
+    const number = parseInt(document.getElementById("number").value);
+    let sum = 0;
+
+    if (number <= 0) {
+      alert("Vui lòng nhập một số nguyên dương!");
+      return;
+    }
+    for (let i = 1; i < number; i++) {
+      if (number % i === 0) {
+        sum += i;
+      }
+    }
+    document.getElementById("numberCell").innerText = number;
+    document.getElementById("resultCell").innerText = (sum === number) ? 'True' : 'False';
+  }
+</script>
+</body>
+</html>
